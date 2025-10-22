@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoSentiment+ - Product Comparison</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .input-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+
+        .input-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .product-inputs {
+            margin-bottom: 20px;
+        }
+
+        .product-input-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .product-input-row input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .product-input-row input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: white;
+            font-size: 1.5em;
+        }
+
+        .results {
+            display: none;
+        }
+
+        .results.active {
+            display: block;
+        }
+
+        .winner-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .winner-card h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .winner-card .score {
+            font-size: 3em;
+            font-weight: bold;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .chart-container h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .product-card h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .strengths, .weaknesses {
+            margin-bottom: 20px;
+        }
+
+        .strengths h4 {
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        .weaknesses h4 {
+            color: #dc3545;
+            margin-bottom: 10px;
+        }
+
+        .strengths ul, .weaknesses ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .strengths li, .weaknesses li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .strengths li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .weaknesses li:before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #dc3545;
+            font-weight: bold;
+        }
+
+        .review-sample {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .review-rating {
+            color: #ffc107;
+            margin-bottom: 5px;
+        }
+
+        .review-text {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .aspect-tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 AutoSentiment+</h1>
+            <p>Multilingual Product Comparison System for Hindi & Marathi Reviews</p>
+        </div>
+
+        <div class="input-section">
+            <h2>Enter Products to Compare</h2>
+            <div class="product-inputs" id="productInputs">
+                <div class="product-input-row">
+                    <input type="text" placeholder="Product 1 (e.g., iPhone 15)" class="product-input">
+                </div>
+                <div class="product-input-row">
+                    <input type="text" placeholder="Product 2 (e.g., Samsung S24)" class="product-input">
+                </div>
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn btn-secondary" onclick="addProduct()">+ Add Product</button>
+                <button class="btn btn-primary" onclick="compareProducts()" id="compareBtn">🔍 Compare Products</button>
+            </div>
+        </div>
+
+        <div class="loading" id="loading" style="display: none;">
+            <div>⏳ Analyzing reviews... Please wait</div>
+        </div>
+
+        <div class="results" id="results">
+            <div class="winner-card">
+                <h2>🏆 Overall Winner</h2>
+                <div class="score" id="winnerName">Product A</div>
+                <p style="font-size: 1.5em; margin-top: 10px;">Score: <span id="winnerScore">8.2</span>/10</p>
+            </div>
+
+            <div class="chart-container">
+                <h3>📊 Aspect-wise Comparison</h3>
+                <canvas id="radarChart"></canvas>
+            </div>
+
+            <div class="chart-container">
+                <h3>📈 Feature-wise Sentiment Scores</h3>
+                <canvas id="barChart"></canvas>
+            </div>
+
+            <div class="comparison-grid" id="productCards">
+                <!-- Product cards will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let radarChart = null;
+        let barChart = null;
+
+        function addProduct() {
+            const container = document.getElementById('productInputs');
+            const currentInputs = container.querySelectorAll('.product-input-row');
+            
+            if (currentInputs.length >= 5) {
+                alert('Maximum 5 products allowed');
+                return;
+            }
+
+            const newRow = document.createElement('div');
+            newRow.className = 'product-input-row';
+            newRow.innerHTML = `
+                <input type="text" placeholder="Product ${currentInputs.length + 1}" class="product-input">
+            `;
+            container.appendChild(newRow);
+        }
+
+        async function compareProducts() {
+            const inputs = document.querySelectorAll('.product-input');
+            const products = Array.from(inputs)
+                .map(input => input.value.trim())
+                .filter(val => val !== '');
+
+            if (products.length < 2) {
+                alert('Please enter at least 2 products');
+                return;
+            }
+
+            // Show loading
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('results').classList.remove('active');
+
+            try {
+                // Call backend API
+                const response = await fetch('http://localhost:5000/api/compare', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ products: products })
+                });
+
+                if (!response.ok) {
+                    throw new Error('API call failed');
+                }
+
+                const data = await response.json();
+                displayResults(data);
+
+            } catch (error) {
+                console.log('Using mock data for demonstration');
+                // Use mock data if API fails
+                const mockData = generateMockData(products);
+                displayResults(mockData);
+            }
+
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('results').classList.add('active');
+        }
+
+        function generateMockData(products) {
+            const aspects = ['Camera', 'Battery', 'Performance', 'Display', 'Value', 'Build Quality'];
+            
+            const mockData = {
+                products: products,
+                comparison: {
+                    overall: products.map((p, i) => ({
+                        name: p,
+                        score: 7.5 + Math.random() * 1.5,
+                        sentiment: 'positive'
+                    })),
+                    aspects: aspects.map(aspect => {
+                        const row = { aspect: aspect };
+                        products.forEach(p => {
+                            row[p] = 60 + Math.random() * 30;
+                        });
+                        return row;
+                    }),
+                    reviews: {},
+                    strengths: {},
+                    weaknesses: {}
+                }
+            };
+
+            // Add sample reviews
+            products.forEach(product => {
+                mockData.comparison.reviews[product] = [
+                    { text: 'कैमरा बहुत बढ़िया है, फोटो क्वालिटी शानदार', rating: 5, aspect: 'Camera' },
+                    { text: 'बैटरी बैकअप थोड़ा कम है', rating: 3, aspect: 'Battery' },
+                    { text: 'परफॉर्मेंस एकदम जबरदस्त', rating: 5, aspect: 'Performance' }
+                ];
+
+                mockData.comparison.strengths[product] = ['Camera Quality', 'Performance', 'Display'];
+                mockData.comparison.weaknesses[product] = ['Battery Life', 'Price'];
+            });
+
+            // Set winner
+            mockData.comparison.winner = mockData.comparison.overall[0].name;
+
+            return mockData;
+        }
+
+        function displayResults(data) {
+            // Update winner card
+            const winner = data.comparison.overall.reduce((max, item) => 
+                item.score > max.score ? item : max
+            );
+            document.getElementById('winnerName').textContent = winner.name;
+            document.getElementById('winnerScore').textContent = winner.score.toFixed(1);
+
+            // Create radar chart
+            createRadarChart(data);
+
+            // Create bar chart
+            createBarChart(data);
+
+            // Create product cards
+            createProductCards(data);
+        }
+
+        function createRadarChart(data) {
+            const ctx = document.getElementById('radarChart').getContext('2d');
+            
+            if (radarChart) {
+                radarChart.destroy();
+            }
+
+            const datasets = data.products.map((product, index) => {
+                const colors = ['rgba(54, 162, 235, 0.6)', 'rgba(255, 99, 132, 0.6)', 'rgba(75, 192, 192, 0.6)'];
+                const borderColors = ['rgba(54, 162, 235, 1)', 'rgba(255, 99, 132, 1)', 'rgba(75, 192, 192, 1)'];
+                
+                return {
+                    label: product,
+                    data: data.comparison.aspects.map(a => a[product]),
+                    backgroundColor: colors[index % colors.length],
+                    borderColor: borderColors[index % borderColors.length],
+                    borderWidth: 2
+                };
+            });
+
+            radarChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: data.comparison.aspects.map(a => a.aspect),
+                    datasets: datasets
+                },
+                options: {
+                    scales: {
+                        r: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    }
+                }
+            });
+        }
+
+        function createBarChart(data) {
+            const ctx = document.getElementById('barChart').getContext('2d');
+            
+            if (barChart) {
+                barChart.destroy();
+            }
+
+            const datasets = data.products.map((product, index) => {
+                const colors = ['rgba(54, 162, 235, 0.8)', 'rgba(255, 99, 132, 0.8)', 'rgba(75, 192, 192, 0.8)'];
+                
+                return {
+                    label: product,
+                    data: data.comparison.aspects.map(a => a[product]),
+                    backgroundColor: colors[index % colors.length]
+                };
+            });
+
+            barChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: data.comparison.aspects.map(a => a.aspect),
+                    datasets: datasets
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    }
+                }
+            });
+        }
+
+        function createProductCards(data) {
+            const container = document.getElementById('productCards');
+            container.innerHTML = '';
+
+            data.products.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                
+                const strengths = data.comparison.strengths[product] || [];
+                const weaknesses = data.comparison.weaknesses[product] || [];
+                const reviews = data.comparison.reviews[product] || [];
+
+                card.innerHTML = `
+                    <h3>${product}</h3>
+                    
+                    <div class="strengths">
+                        <h4>✓ Strengths</h4>
+                        <ul>
+                            ${strengths.map(s => `<li>${s}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <div class="weaknesses">
+                        <h4>✗ Weaknesses</h4>
+                        <ul>
+                            ${weaknesses.map(w => `<li>${w}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    <h4 style="color: #667eea; margin-top: 20px; margin-bottom: 10px;">Sample Reviews</h4>
+                    ${reviews.map(r => `
+                        <div class="review-sample">
+                            <div class="review-rating">${'⭐'.repeat(r.rating)}</div>
+                            <div class="review-text">${r.text}</div>
+                            <span class="aspect-tag">${r.aspect}</span>
+                        </div>
+                    `).join('')}
+                `;
+
+                container.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>

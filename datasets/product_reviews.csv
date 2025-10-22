@@ -1,0 +1,105 @@
+"text",sentiment,language
+"कैमरा बहुत बढ़िया है फोटो क्वालिटी शानदार",positive,hindi
+"बैटरी बैकअप शानदार है",positive,hindi
+"डिस्प्ले बहुत अच्छा है",positive,hindi
+"परफॉर्मेंस एकदम जबरदस्त कोई लैग नहीं",positive,hindi
+"कीमत के हिसाब से वैल्यू बढ़िया है",positive,hindi
+"बैटरी बैकअप बहुत कम है",negative,hindi
+"डिस्प्ले खराब है",negative,hindi
+"परफॉर्मेंस धीमी है",negative,hindi
+"कीमत बहुत ज्यादा है",negative,hindi
+"बिल्ड क्वालिटी कमजोर है",negative,hindi
+"कैमरा शानदार है",positive,hindi
+"बैटरी लंबे समय तक चलती है",positive,hindi
+"डिस्प्ले ब्राइट और क्लियर है",positive,hindi
+"परफॉर्मेंस स्मूद है",positive,hindi
+"वैल्यू फॉर मनी सही है",positive,hindi
+"बैटरी जल्दी खत्म हो जाती है",negative,hindi
+"डिस्प्ले ब्लरी है",negative,hindi
+"परफॉर्मेंस स्लो है",negative,hindi
+"कीमत महंगी है",negative,hindi
+"बिल्ड क्वालिटी कमजोर महसूस होती है",negative,hindi
+"कॅमेरा खूप छान आहे फोटो क्वालिटी उत्तम",positive,marathi
+"बॅटरी बॅकअप उत्कृष्ट आहे",positive,marathi
+"डिस्प्ले सुंदर आहे",positive,marathi
+"परफॉर्मन्स उत्कृष्ट आहे गेमिंग चांगली",positive,marathi
+"किंमत योग्य आहे",positive,marathi
+"बॅटरी बॅकअप कमी आहे",negative,marathi
+"डिस्प्ले खराब आहे",negative,marathi
+"परफॉर्मन्स मंद आहे",negative,marathi
+"किंमत जास्त आहे",negative,marathi
+"बिल्ड क्वालिटी कमी आहे",negative,marathi
+"कैमरा बहुत शानदार है, तस्वीरें साफ और रंगीन हैं",positive,hindi
+"बैटरी जल्दी चार्ज होती है और लंबा चलती है",positive,hindi
+"डिस्प्ले ब्राइट और शानदार है",positive,hindi
+"परफॉर्मेंस स्मूद है, कोई लैग नहीं",positive,hindi
+"कीमत के हिसाब से प्रोडक्ट बहुत अच्छा है",positive,hindi
+"बिल्ड क्वालिटी मजबूत है",positive,hindi
+"बैटरी जल्दी खत्म हो जाती है",negative,hindi
+"डिस्प्ले धुंधला है, रंग फीके हैं",negative,hindi
+"परफॉर्मेंस धीमी है, अक्सर लैग होता है",negative,hindi
+"कीमत बहुत ज्यादा है, value नहीं मिल रही",negative,hindi
+"कॅमेरा उत्कृष्ट आहे, फोटो खूप स्पष्ट आहेत",positive,marathi
+"बॅटरी चांगली आहे, खूप वेळ टिकते",positive,marathi
+"डिस्प्ले सुंदर आणि स्पष्ट आहे",positive,marathi
+"परफॉर्मन्स जबरदस्त आहे, कोणताही लैग नाही",positive,marathi
+"कीमत योग्य आहे, खूप चांगले मूल्य",positive,marathi
+"बिल्ड क्वालिटी मजबूत आहे",positive,marathi
+"बॅटरी लवकर संपते",negative,marathi
+"डिस्प्ले अस्पष्ट आहे, रंग बुडाले आहेत",negative,marathi
+"परफॉर्मन्स मंद आहे, गेमिंगसाठी नाही",negative,marathi
+"कीमत जास्त आहे, value नाही मिळत",negative,marathi
+"कैमरा बहुत स्पष्ट और रंगीन तस्वीरें लेता है",positive,hindi
+"बैटरी चार्ज जल्दी खत्म हो जाती है",negative,hindi
+"डिस्प्ले की ब्राइटनेस काफी अच्छी है",positive,hindi
+"परफॉर्मेंस गेम खेलते समय धीमी होती है",negative,hindi
+"कीमत उचित है और प्रोडक्ट अच्छा है",positive,hindi
+"बिल्ड क्वालिटी मजबूत नहीं लगती",negative,hindi
+"कैमरा शानदार फोटो देता है",positive,hindi
+"बैटरी लगातार काम करते हुए जल्दी खत्म होती है",negative,hindi
+"डिस्प्ले क्लियर और चमकदार है",positive,hindi
+"परफॉर्मेंस में अक्सर लैग आता है",negative,hindi
+"कीमत के हिसाब से प्रोडक्ट शानदार है",positive,hindi
+"बिल्ड क्वालिटी में कमजोर जगहें हैं",negative,hindi
+"कैमरा कम रोशनी में अच्छा काम करता है",positive,hindi
+"बैटरी बैकअप बहुत कम है",negative,hindi
+"डिस्प्ले रंग और कंट्रास्ट सही हैं",positive,hindi
+"परफॉर्मेंस भारी ऐप्स में स्लो है",negative,hindi
+"कीमत बिल्कुल सही है",positive,hindi
+"बिल्ड क्वालिटी सस्ता महसूस होता है",negative,hindi
+"कैमरा फोकस जल्दी करता है",positive,hindi
+"बैटरी जल्दी गर्म हो जाती है",negative,hindi
+"डिस्प्ले बहुत सुंदर और स्पष्ट है",positive,hindi
+"परफॉर्मेंस ऐप्स खोलने में स्लो है",negative,hindi
+"कीमत के हिसाब से अच्छा विकल्प है",positive,hindi
+"बिल्ड क्वालिटी टिकाऊ नहीं है",negative,hindi
+"कैमरा फोटो में विस्तार अच्छे से दिखाता है",positive,hindi
+"बैटरी चार्जिंग समय लंबा है",negative,hindi
+"डिस्प्ले ब्राइट और संतुलित है",positive,hindi
+"परफॉर्मेंस गेमिंग के लिए उपयुक्त नहीं",negative,hindi
+"कीमत और फीचर संतुलित हैं",positive,hindi
+"बिल्ड क्वालिटी कमजोर महसूस होती है",negative,hindi
+"कॅमेरा फोटो खूप स्पष्ट घेतो",positive,marathi
+"बॅटरी लवकर संपते",negative,marathi
+"डिस्प्ले सुंदर आणि चमकदार आहे",positive,marathi
+"परफॉर्मन्स हळू आहे",negative,marathi
+"कीमत योग्य आहे आणि उत्पादन चांगले आहे",positive,marathi
+"बिल्ड क्वालिटी टिकाऊ नाही",negative,marathi
+"कॅमेरा कमी प्रकाशात उत्तम आहे",positive,marathi
+"बॅटरी वेळेत संपते",negative,marathi
+"डिस्प्ले रंग आणि कॉन्ट्रास्ट योग्य आहे",positive,marathi
+"परफॉर्मन्स गेमिंगमध्ये हळू आहे",negative,marathi
+"कीमत आणि गुणवत्ता योग्य आहे",positive,marathi
+"बिल्ड क्वालिटी साधी आहे",negative,marathi
+"कॅमेरा जलद फोकस करतो",positive,marathi
+"बॅटरी गरम होते आणि लवकर संपते",negative,marathi
+"डिस्प्ले स्पष्ट आणि ब्राइट आहे",positive,marathi
+"परफॉर्मन्स अ‍ॅप्स उघडताना हळू आहे",negative,marathi
+"कीमत चांगली आहे",positive,marathi
+"बिल्ड क्वालिटी मजबूत वाटत नाही",negative,marathi
+"कॅमेरा फोटोमध्ये छान तपशील दाखवतो",positive,marathi
+"बॅटरी चार्ज होण्यास वेळ लागतो",negative,marathi
+"डिस्प्ले संतुलित रंगांसह आहे",positive,marathi
+"परफॉर्मन्स गेमिंगसाठी योग्य नाही",negative,marathi
+"कीमत आणि वैशिष्ट्ये चांगली आहेत",positive,marathi
+"बिल्ड क्वालिटी कमजोर आहे",negative,marathi
