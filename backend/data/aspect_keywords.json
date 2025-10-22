@@ -1,0 +1,32 @@
+{
+  "Camera": {
+    "hindi": ["कैमरा", "फोटो", "पिक्चर", "सेल्फी", "वीडियो", "लेंस", "मेगापिक्सल"],
+    "marathi": ["कॅमेरा", "फोटो", "चित्र", "व्हिडिओ"],
+    "english": ["camera", "photo", "picture", "selfie", "video", "lens", "megapixel", "zoom"]
+  },
+  "Battery": {
+    "hindi": ["बैटरी", "बैकअप", "चार्जिंग", "चार्ज", "पावर", "माह"],
+    "marathi": ["बॅटरी", "बॅकअप", "चार्जिंग", "पॉवर"],
+    "english": ["battery", "backup", "charging", "charge", "power", "mah", "lasting"]
+  },
+  "Performance": {
+    "hindi": ["परफॉर्मेंस", "स्पीड", "तेज", "धीमा", "लैग", "गेमिंग", "प्रोसेसर", "रैम"],
+    "marathi": ["परफॉर्मन्स", "स्पीड", "वेग", "गेमिंग", "प्रोसेसर"],
+    "english": ["performance", "speed", "fast", "slow", "lag", "gaming", "processor", "ram", "smooth"]
+  },
+  "Display": {
+    "hindi": ["डिस्प्ले", "स्क्रीन", "आकार", "चमक", "रंग", "स्पष्टता"],
+    "marathi": ["डिस्प्ले", "स्क्रीन", "आकार", "ब्राइटनेस"],
+    "english": ["display", "screen", "size", "brightness", "color", "clarity", "amoled", "lcd"]
+  },
+  "Value": {
+    "hindi": ["कीमत", "दाम", "पैसा", "वैल्यू", "महंगा", "सस्ता"],
+    "marathi": ["किंमत", "दाम", "पैसा", "महाग", "स्वस्त"],
+    "english": ["price", "value", "money", "worth", "expensive", "cheap", "cost"]
+  },
+  "Build Quality": {
+    "hindi": ["बिल्ड", "गुणवत्ता", "डिज़ाइन", "लुक", "बॉडी", "मटेरियल"],
+    "marathi": ["बिल्ड", "गुणवत्ता", "डिझाइन", "मटेरियल"],
+    "english": ["build", "quality", "design", "look", "body", "material", "finish", "premium"]
+  }
+}
