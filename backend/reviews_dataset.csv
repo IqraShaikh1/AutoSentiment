@@ -1,0 +1,299 @@
+product_name,category,text,rating,aspect,language
+iPhone 15,phone,कैमरा बहुत बढ़िया है 48MP सेंसर शानदार फोटो लेता है,5,Camera,hindi
+iPhone 15,phone,बैटरी बैकअप औसत है एक दिन मुश्किल से चलती है,3,Battery,hindi
+iPhone 15,phone,A17 प्रोसेसर की स्पीड लाजवाब है गेमिंग smoothly चलती है,5,Performance,hindi
+iPhone 15,phone,डिस्प्ले बहुत bright और color accurate है,5,Display,hindi
+iPhone 15,phone,कीमत बहुत ज्यादा है ₹80000 से ऊपर है,2,Value,hindi
+iPhone 15,phone,बिल्ड क्वालिटी premium है titanium body मजबूत लगती है,5,Build Quality,hindi
+iPhone 15,phone,कॅमेरा खूप चांगला आहे फोटो क्वालिटी उत्तम आहे,5,Camera,marathi
+iPhone 15,phone,बॅटरी बॅकअप सरासरी आहे एक दिवस कठीण चालते,3,Battery,marathi
+Samsung S24,phone,कैमरा अच्छा है पर iPhone से थोड़ा पीछे है,4,Camera,hindi
+Samsung S24,phone,बैटरी लाइफ बहुत अच्छी है पूरे दिन आराम से चलती है,5,Battery,hindi
+Samsung S24,phone,Snapdragon 8 Gen 3 की परफॉर्मेंस बेहतरीन है,5,Performance,hindi
+Samsung S24,phone,AMOLED डिस्प्ले की quality जबरदस्त है,5,Display,hindi
+Samsung S24,phone,Price iPhone से कम है value for money अच्छी है,4,Value,hindi
+Samsung S24,phone,बिल्ड क्वालिटी अच्छी है लेकिन plastic back है,4,Build Quality,hindi
+Samsung S24,phone,कॅमेरा चांगला आहे पण iPhone पेक्षा थोडा मागे आहे,4,Camera,marathi
+Samsung S24,phone,बॅटरी लाइफ खूप चांगली आहे पूर्ण दिवस चालते,5,Battery,marathi
+Vivo Y33T,phone,कैमरा ठीक है price के हिसाब से अच्छा है,3,Camera,hindi
+Vivo Y33T,phone,बैटरी 5000mAh है 2 दिन आराम से चलती है,5,Battery,hindi
+Vivo Y33T,phone,परफॉर्मेंस basic use के लिए okay है,3,Performance,hindi
+Vivo Y33T,phone,LCD डिस्प्ले है AMOLED नहीं है,3,Display,hindi
+Vivo Y33T,phone,Budget phone है कीमत बहुत reasonable है,5,Value,hindi
+Vivo Y33T,phone,प्लास्टिक बॉडी है पर sturdy लगती है,3,Build Quality,hindi
+OnePlus 12,phone,हैसलब्लाड कैमरा की quality flagship level है,5,Camera,hindi
+OnePlus 12,phone,बैटरी लाइफ excellent है 100W fast charging भी है,5,Battery,hindi
+OnePlus 12,phone,Snapdragon 8 Gen 3 बहुत powerful है,5,Performance,hindi
+OnePlus 12,phone,120Hz AMOLED डिस्प्ले smooth है,5,Display,hindi
+OnePlus 12,phone,कीमत ₹65000 है competitors से सस्ता है,4,Value,hindi
+OnePlus 12,phone,alert slider और premium feel बहुत अच्छी है,5,Build Quality,hindi
+Redmi Note 13 Pro,phone,200MP कैमरा marketing gimmick है actual quality average,3,Camera,hindi
+Redmi Note 13 Pro,phone,बैटरी backup solid है 5000mAh long lasting,5,Battery,hindi
+Redmi Note 13 Pro,phone,Dimensity processor decent है mid-range के लिए,4,Performance,hindi
+Redmi Note 13 Pro,phone,AMOLED डिस्प्ले crisp है इस price में,4,Display,hindi
+Redmi Note 13 Pro,phone,Best value for money phone ₹25000 में सब कुछ,5,Value,hindi
+Redmi Note 13 Pro,phone,प्लास्टिक बैक है पर curved design premium लगता है,4,Build Quality,hindi
+Sony Bravia X90L,tv,पिक्चर क्वालिटी outstanding है 4K resolution शानदार,5,Display,hindi
+Sony Bravia X90L,tv,साउंड क्वालिटी बहुत अच्छी है Dolby Atmos support,5,Audio,hindi
+Sony Bravia X90L,tv,स्मार्ट फीचर्स अच्छे हैं Google TV smooth चलता है,4,Smart Features,hindi
+Sony Bravia X90L,tv,कीमत बहुत महंगी है ₹150000 से ऊपर,2,Value,hindi
+Sony Bravia X90L,tv,बिल्ड क्वालिटी premium है slim design आकर्षक,5,Build Quality,hindi
+Sony Bravia X90L,tv,चित्र गुणवत्ता उत्कृष्ट आहे 4K रिझोल्यूशन छान आहे,5,Display,marathi
+LG OLED C3,tv,OLED डिस्प्ले की quality लाजवाब है perfect blacks,5,Display,hindi
+LG OLED C3,tv,साउंड अच्छा है लेकिन soundbar की जरूरत है,4,Audio,hindi
+LG OLED C3,tv,WebOS interface user-friendly है और fast भी,5,Smart Features,hindi
+LG OLED C3,tv,Gaming के लिए perfect है 120Hz और low input lag,5,Performance,hindi
+LG OLED C3,tv,कीमत high है पर worth it है इस quality के लिए,4,Value,hindi
+Samsung Neo QLED,tv,QLED टेक्नोलॉजी बहुत bright है HDR content stunning,5,Display,hindi
+Samsung Neo QLED,tv,ऑडियो quality अच्छी है Object Tracking Sound काम करता है,4,Audio,hindi
+Samsung Neo QLED,tv,Tizen OS smooth है बहुत सारे apps available हैं,4,Smart Features,hindi
+Samsung Neo QLED,tv,कीमत reasonable है features के हिसाब से,4,Value,hindi
+Mi TV 5X,tv,डिस्प्ले अच्छी है price segment में best,4,Display,hindi
+Mi TV 5X,tv,साउंड average है external speakers recommended,3,Audio,hindi
+Mi TV 5X,tv,PatchWall interface बहुत अच्छा है content discovery easy,4,Smart Features,hindi
+Mi TV 5X,tv,Budget TV के लिए बेस्ट है value for money excellent,5,Value,hindi
+Mi TV 5X,tv,प्लास्टिक बॉडी है पर ठीक है इस price में,3,Build Quality,hindi
+Canon EOS R6,camera,इमेज क्वालिटी outstanding है 20MP sensor powerful,5,Image Quality,hindi
+Canon EOS R6,camera,ऑटोफोकस बहुत तेज है eye detection perfect काम करता,5,Autofocus,hindi
+Canon EOS R6,camera,वीडियो quality 4K 60fps शानदार है,5,Video,hindi
+Canon EOS R6,camera,बैटरी लाइफ अच्छी है पूरे दिन की shooting के लिए,4,Battery,hindi
+Canon EOS R6,camera,कीमत ₹250000 है professional level के लिए worth it,4,Value,hindi
+Canon EOS R6,camera,बिल्ड क्वालिटी rugged है weather sealed body मजबूत,5,Build Quality,hindi
+Sony A7 IV,camera,सेंसर quality लाजवाब है 33MP resolution detailed images,5,Image Quality,hindi
+Sony A7 IV,camera,ऑटोफोकस सिस्टम best in class है real-time tracking,5,Autofocus,hindi
+Sony A7 IV,camera,4K 60fps वीडियो quality professional grade है,5,Video,hindi
+Sony A7 IV,camera,बैटरी improved है पिछले model से बेहतर,4,Battery,hindi
+Sony A7 IV,camera,कीमत ₹220000 reasonable है इस segment में,4,Value,hindi
+Nikon Z6 II,camera,इमेज क्वालिटी excellent है colors natural लगते हैं,5,Image Quality,hindi
+Nikon Z6 II,camera,फोकस सिस्टम reliable है पर Sony से थोड़ा slow,4,Autofocus,hindi
+Nikon Z6 II,camera,वीडियो features अच्छे हैं dual card slots useful,4,Video,hindi
+Nikon Z6 II,camera,बैटरी backup ठीक है average performance,3,Battery,hindi
+Nikon Z6 II,camera,कीमत competitive है value decent है,4,Value,hindi
+Fujifilm X-T5,camera,कलर साइंस amazing है film simulations बेहतरीन,5,Image Quality,hindi
+Fujifilm X-T5,camera,ऑटोफोकस improved है पर still DSLR जैसा नहीं,4,Autofocus,hindi
+Fujifilm X-T5,camera,वीडियो में कुछ limitations हैं overheating issue,3,Video,hindi
+Fujifilm X-T5,camera,रेट्रो डिज़ाइन beautiful है dials बहुत useful,5,Build Quality,hindi
+Fujifilm X-T5,camera,कीमत ₹150000 reasonable है APS-C sensor के साथ,4,Value,hindi
+Canon M50 Mark II,camera,बिगिनर्स के लिए perfect है easy to use interface,5,Image Quality,hindi
+Canon M50 Mark II,camera,ऑटोफोकस decent है basic needs के लिए,4,Autofocus,hindi
+Canon M50 Mark II,camera,4K वीडियो crop होता है limitation है,3,Video,hindi
+Canon M50 Mark II,camera,बैटरी कमजोर है extra battery चाहिए,3,Battery,hindi
+Canon M50 Mark II,camera,बजट कैमरा है ₹60000 में अच्छा package,5,Value,hindi
+Pixel 8 Pro,phone,Google कैमरा AI शानदार है computational photography लाजवाब,5,Camera,hindi
+Pixel 8 Pro,phone,Night sight feature अद्भुत है low light में perfect,5,Camera,hindi
+Pixel 8 Pro,phone,कॅमेरा AI खूप चांगला आहे फोटो quality उत्कृष्ट,5,Camera,marathi
+Pixel 8 Pro,phone,बैटरी decent है लेकिन heavy use में कम पड़ती है,3,Battery,hindi
+Pixel 8 Pro,phone,चार्जिंग स्पीड slow है 30W only,3,Battery,hindi
+Pixel 8 Pro,phone,बॅटरी सरासरी आहे पूर्ण दिवस कठीण चालते,3,Battery,marathi
+Pixel 8 Pro,phone,Tensor G3 processor unique है AI tasks में best,5,Performance,hindi
+Pixel 8 Pro,phone,Gaming performance average है heating issue भी है,3,Performance,hindi
+Pixel 8 Pro,phone,120Hz OLED display vibrant है colors accurate,5,Display,hindi
+Pixel 8 Pro,phone,Screen brightness outdoor में excellent है,5,Display,hindi
+Pixel 8 Pro,phone,कीमत ₹85000 है premium segment में competitive,4,Value,hindi
+Pixel 8 Pro,phone,Features के हिसाब से reasonable price है,4,Value,hindi
+Pixel 8 Pro,phone,बिल्ड quality premium है glass back elegant लगता,5,Build Quality,hindi
+Pixel 8 Pro,phone,बांधकाम गुणवत्ता उत्तम आहे premium feel,5,Build Quality,marathi
+Nothing Phone 2,phone,कैमरा decent है unique features हैं,4,Camera,hindi
+Nothing Phone 2,phone,50MP sensor अच्छी quality देता है daylight में,4,Camera,hindi
+Nothing Phone 2,phone,कॅमेरा चांगला आहे पण top tier नाही,4,Camera,marathi
+Nothing Phone 2,phone,बैटरी 4700mAh solid backup देती है,4,Battery,hindi
+Nothing Phone 2,phone,45W fast charging बहुत तेज है,5,Battery,hindi
+Nothing Phone 2,phone,Snapdragon 8+ Gen 1 powerful है smooth performance,5,Performance,hindi
+Nothing Phone 2,phone,Gaming में कोई lag नहीं है excellent,5,Performance,hindi
+Nothing Phone 2,phone,OLED display stunning है Glyph interface unique,5,Display,hindi
+Nothing Phone 2,phone,120Hz refresh rate butter smooth है,5,Display,hindi
+Nothing Phone 2,phone,₹45000 में best value unique design के साथ,5,Value,hindi
+Nothing Phone 2,phone,किंमत खूप चांगली आहे features बघता,5,Value,marathi
+Nothing Phone 2,phone,Transparent back design unique है premium feel,5,Build Quality,hindi
+Nothing Phone 2,phone,Glyph lights का implementation शानदार है,5,Build Quality,hindi
+Motorola Edge 40,phone,कैमरा ठीक है mid-range segment में अच्छा,4,Camera,hindi
+Motorola Edge 40,phone,50MP main sensor decent photos लेता है,4,Camera,hindi
+Motorola Edge 40,phone,बैटरी 4400mAh है average backup,3,Battery,hindi
+Motorola Edge 40,phone,68W fast charging lightning fast है,5,Battery,hindi
+Motorola Edge 40,phone,Dimensity 8020 processor smooth है daily use के लिए,4,Performance,hindi
+Motorola Edge 40,phone,Gaming decent है heavy games में थोड़ी heating,3,Performance,hindi
+Motorola Edge 40,phone,144Hz pOLED display silky smooth है,5,Display,hindi
+Motorola Edge 40,phone,curved display premium look देता है,5,Display,hindi
+Motorola Edge 40,phone,₹30000 में excellent value thin design के साथ,5,Value,hindi
+Motorola Edge 40,phone,Budget में best looking phone है,5,Value,hindi
+Motorola Edge 40,phone,7.5mm thickness super slim है comfortable,5,Build Quality,hindi
+Motorola Edge 40,phone,वजन 167g केवल बहुत हल्का लगता है,5,Build Quality,hindi
+TCL C735,tv,QLED panel अच्छा है colors vibrant हैं,4,Display,hindi
+TCL C735,tv,4K resolution sharp है HDR support भी है,4,Display,hindi
+TCL C735,tv,डिस्प्ले गुणवत्ता चांगली आहे bright आहे,4,Display,marathi
+TCL C735,tv,Dolby Atmos sound quality बहुत अच्छी है,5,Audio,hindi
+TCL C735,tv,Subwoofer built-in है bass powerful है,5,Audio,hindi
+TCL C735,tv,Google TV interface user-friendly है,4,Smart Features,hindi
+TCL C735,tv,Apps की range अच्छी है smooth चलते हैं,4,Smart Features,hindi
+TCL C735,tv,Gaming mode अच्छा है low latency,4,Performance,hindi
+TCL C735,tv,HDMI 2.1 support gaming के लिए बढ़िया,5,Performance,hindi
+TCL C735,tv,₹55000 में excellent package budget में best,5,Value,hindi
+TCL C735,tv,किंमत खूप योग्य आहे features बघता,5,Value,marathi
+TCL C735,tv,बिल्ड decent है bezels slim हैं,4,Build Quality,hindi
+TCL C735,tv,Stand stable है premium नहीं लगता,3,Build Quality,hindi
+Hisense U8H,tv,Mini LED backlight शानदार है contrast perfect,5,Display,hindi
+Hisense U8H,tv,Brightness level बहुत high है 1500 nits,5,Display,hindi
+Hisense U8H,tv,साउंड quality अच्छी है लेकिन bass कम है,3,Audio,hindi
+Hisense U8H,tv,External speakers की recommendation है,3,Audio,hindi
+Hisense U8H,tv,VIDAA OS simple है लेकिन apps limited,3,Smart Features,hindi
+Hisense U8H,tv,Netflix और Prime preinstalled हैं,4,Smart Features,hindi
+Hisense U8H,tv,Gaming features excellent हैं VRR support,5,Performance,hindi
+Hisense U8H,tv,120Hz panel gaming के लिए ideal,5,Performance,hindi
+Hisense U8H,tv,₹75000 में Mini LED technology बढ़िया deal,5,Value,hindi
+Hisense U8H,tv,Performance to price ratio outstanding,5,Value,hindi
+Hisense U8H,tv,बिल्ड quality solid है premium finish,4,Build Quality,hindi
+Hisense U8H,tv,Metal frame sturdy है elegant look,4,Build Quality,hindi
+Nikon Z8,camera,45MP sensor incredible resolution detail amazing,5,Image Quality,hindi
+Nikon Z8,camera,Dynamic range बेहतरीन है RAW files flexible,5,Image Quality,hindi
+Nikon Z8,camera,इमेज quality उत्कृष्ट आहे colors natural,5,Image Quality,marathi
+Nikon Z8,camera,AF system Z9 जैसा है lightning fast,5,Autofocus,hindi
+Nikon Z8,camera,Eye detection animals के लिए भी perfect,5,Autofocus,hindi
+Nikon Z8,camera,8K 60fps recording professional grade है,5,Video,hindi
+Nikon Z8,camera,Internal RAW recording filmmaker के लिए ideal,5,Video,hindi
+Nikon Z8,camera,Battery life excellent है full day shooting,5,Battery,hindi
+Nikon Z8,camera,EN-EL15c battery proven है reliable,5,Battery,hindi
+Nikon Z8,camera,₹280000 में Z9 features affordable price,5,Value,hindi
+Nikon Z8,camera,Professional work के लिए worth investment,5,Value,hindi
+Nikon Z8,camera,Weather sealing top-notch है rugged body,5,Build Quality,hindi
+Nikon Z8,camera,Build quality निकॉन standard excellent,5,Build Quality,hindi
+Canon R7,camera,32.5MP APS-C sensor sharp images crop factor advantage,4,Image Quality,hindi
+Canon R7,camera,Wildlife photography के लिए ideal है reach बढ़ती,5,Image Quality,hindi
+Canon R7,camera,Dual Pixel AF reliable है tracking अच्छी,4,Autofocus,hindi
+Canon R7,camera,Animal detection काम करता है पर Sony से slow,4,Autofocus,hindi
+Canon R7,camera,4K 60fps oversampled quality excellent है,5,Video,hindi
+Canon R7,camera,Overheating issue है long recording में problem,3,Video,hindi
+Canon R7,camera,LP-E6NH battery decent है spare चाहिए,4,Battery,hindi
+Canon R7,camera,CIPA rating 660 shots average है,3,Battery,hindi
+Canon R7,camera,₹135000 में wildlife camera best budget option,5,Value,hindi
+Canon R7,camera,RF-S lenses affordable हैं ecosystem growing,4,Value,hindi
+Canon R7,camera,Magnesium alloy body solid है weather sealed,5,Build Quality,hindi
+Canon R7,camera,Ergonomics comfortable हैं grip अच्छी,5,Build Quality,hindi
+product_name,category,text,rating,aspect,language
+MacBook Air M3,laptop,Apple silicon की performance बेहद fast है everyday use के लिए perfect,5,Performance,hindi
+MacBook Air M3,laptop,Battery backup शानदार है 16 घंटे तक चलती है,5,Battery,hindi
+MacBook Air M3,laptop,Display बहुत bright और color accurate है,5,Display,hindi
+MacBook Air M3,laptop,कीमत ज्यादा है लेकिन build quality premium है,4,Value,hindi
+MacBook Air M3,laptop,बांधकाम गुणवत्ता उत्तम आहे aluminium body खूप मजबूत आहे,5,Build Quality,marathi
+MacBook Air M3,laptop,Keyboard typing experience smooth आहे,5,Performance,marathi
+Dell XPS 15,laptop,4K डिस्प्ले शानदार है color reproduction top-notch,5,Display,hindi
+Dell XPS 15,laptop,Performance excellent है heavy editing में भी smooth,5,Performance,hindi
+Dell XPS 15,laptop,Fans थोड़े noisy हैं high load पर,3,Build Quality,hindi
+Dell XPS 15,laptop,Battery average है 7 घंटे के आसपास,3,Battery,hindi
+Dell XPS 15,laptop,Price high है लेकिन professional use के लिए justified,4,Value,hindi
+Dell XPS 15,laptop,कॅमेरा गुणवत्ता सरासरी आहे पण काम भागते,3,Camera,marathi
+HP Spectre x360,laptop,Convertible design बहुत useful है tablet mode convenient,5,Build Quality,hindi
+HP Spectre x360,laptop,Display vibrant है touchscreen responsive है,5,Display,hindi
+HP Spectre x360,laptop,Battery 10 घंटे तक चलती है decent backup,4,Battery,hindi
+HP Spectre x360,laptop,Performance smooth है Intel i7 version fast चलता है,5,Performance,hindi
+HP Spectre x360,laptop,Premium look आणि feel खूप छान आहे,5,Build Quality,marathi
+Lenovo Yoga 9i,laptop,Design premium है build बहुत sturdy,5,Build Quality,hindi
+Lenovo Yoga 9i,laptop,OLED display stunning है visuals crisp हैं,5,Display,hindi
+Lenovo Yoga 9i,laptop,Battery decent है 8-9 घंटे आराम से,4,Battery,hindi
+Lenovo Yoga 9i,laptop,Sound quality excellent है B&O speakers loud हैं,5,Audio,hindi
+Lenovo Yoga 9i,laptop,₹130000 में premium experience मिलता है,4,Value,hindi
+Asus ROG Zephyrus G16,laptop,Gaming performance जबरदस्त है RTX 4070 smooth चलता है,5,Performance,hindi
+Asus ROG Zephyrus G16,laptop,Display 240Hz है gamers के लिए perfect,5,Display,hindi
+Asus ROG Zephyrus G16,laptop,Battery weak है सिर्फ 5 घंटे चलती है,3,Battery,hindi
+Asus ROG Zephyrus G16,laptop,Build strong है पर थोड़ी heating होती है,4,Build Quality,hindi
+Asus ROG Zephyrus G16,laptop,गेमिंगसाठी हा लॅपटॉप उत्तम आहे पर battery कमी आहे,4,Performance,marathi
+iPad Air M2,tablet,Display buttery smooth है 120Hz ProMotion support,5,Display,hindi
+iPad Air M2,tablet,Performance top-notch है M2 chip fast है multitasking में,5,Performance,hindi
+iPad Air M2,tablet,Battery backup solid है पूरे दिन चलती है,5,Battery,hindi
+iPad Air M2,tablet,Apple Pencil 2 support बहुत उपयोगी है,5,Build Quality,hindi
+iPad Air M2,tablet,किंमत जरा जास्त आहे पण कार्यक्षमता उत्कृष्ट,4,Value,marathi
+Samsung Galaxy Tab S9,tablet,AMOLED डिस्प्ले शानदार है movies के लिए best,5,Display,hindi
+Samsung Galaxy Tab S9,tablet,Snapdragon 8 Gen 2 performance powerful है,5,Performance,hindi
+Samsung Galaxy Tab S9,tablet,बॅटरी लाइफ उत्तम आहे पूर्ण दिवस चालते,5,Battery,marathi
+Samsung Galaxy Tab S9,tablet,S Pen experience smooth आणि natural आहे,5,Build Quality,marathi
+Samsung Galaxy Tab S9,tablet,कीमत थोडी जास्त आहे पण गुणवत्ता प्रीमियम,4,Value,marathi
+Realme Buds Air 5,earbuds,Sound clarity बहुत बढ़िया है bass deep है,5,Audio,hindi
+Realme Buds Air 5,earbuds,ANC feature ठीक काम करता है external noise कम करता है,4,Performance,hindi
+Realme Buds Air 5,earbuds,Battery backup अच्छा है 7 घंटे तक,4,Battery,hindi
+Realme Buds Air 5,earbuds,Build sturdy है case compact है,4,Build Quality,hindi
+Realme Buds Air 5,earbuds,₹3500 में superb sound quality मिळते,5,Value,marathi
+Sony WF-1000XM5,earbuds,Noise cancellation industry best है crystal clear sound,5,Audio,hindi
+Sony WF-1000XM5,earbuds,Comfort fit बहुत अच्छा है long use में भी perfect,5,Build Quality,hindi
+Sony WF-1000XM5,earbuds,Battery backup solid है 8 घंटे playback,5,Battery,hindi
+Sony WF-1000XM5,earbuds,कीमत ₹25000 है पर sound experience unmatched,4,Value,hindi
+Sony WF-1000XM5,earbuds,साउंड क्वालिटी अप्रतिम आहे bass खूप deep आहे,5,Audio,marathi
+Samsung WW90T Washing Machine,washing_machine,Wash quality excellent है clothes बिल्कुल साफ होते हैं,5,Performance,hindi
+Samsung WW90T Washing Machine,washing_machine,Noise level बहुत low है silent operation,5,Build Quality,hindi
+Samsung WW90T Washing Machine,washing_machine,Energy efficient है electricity बहुत कम लेती है,5,Value,hindi
+Samsung WW90T Washing Machine,washing_machine,ड्रम quality मजबूत है long lasting,5,Build Quality,hindi
+LG TurboWash 5.0,washing_machine,Quick wash feature बहुत helpful है busy schedule के लिए,5,Performance,hindi
+LG TurboWash 5.0,washing_machine,Noise बहुत कम है smooth functioning,5,Build Quality,hindi
+LG TurboWash 5.0,washing_machine,Power consumption कम है inverter motor efficient,4,Value,hindi
+LG TurboWash 5.0,washing_machine,बांधकाम गुणवत्ता उत्कृष्ट आहे टिकाऊ आणि मजबूत,5,Build Quality,marathi
+IFB Senator Plus,washing_machine,Wash cycles variety बहुत है हर कपड़े के लिए option,5,Smart Features,hindi
+IFB Senator Plus,washing_machine,Drum gentle है fabric damage नहीं होता,5,Performance,hindi
+IFB Senator Plus,washing_machine,Energy rating 5-star है बहुत efficient,5,Value,hindi
+IFB Senator Plus,washing_machine,Sound थोड़ा आता है spin mode में,3,Build Quality,hindi
+Bosch Serie 6,washing_machine,Build quality solid है body steel की है,5,Build Quality,hindi
+Bosch Serie 6,washing_machine,Wash quality top-notch है stains आसानी से हटते हैं,5,Performance,hindi
+Bosch Serie 6,washing_machine,Noise very low है vibration minimal,5,Build Quality,hindi
+Bosch Serie 6,washing_machine,Price थोड़ा high है लेकिन reliability excellent,4,Value,hindi
+Bosch Serie 6,washing_machine,किंमत थोडी जास्त आहे पण गुणवत्ता खूप चांगली,4,Value,marathi
+MacBook Air M3,laptop,Apple silicon की performance बेहद fast है everyday use के लिए perfect,5,Performance,hindi
+MacBook Air M3,laptop,Battery backup शानदार है 16 घंटे तक चलती है,5,Battery,hindi
+MacBook Air M3,laptop,Display बहुत bright और color accurate है,5,Display,hindi
+MacBook Air M3,laptop,कीमत ज्यादा है लेकिन build quality premium है,4,Value,hindi
+MacBook Air M3,laptop,बांधकाम गुणवत्ता उत्तम आहे aluminium body खूप मजबूत आहे,5,Build Quality,marathi
+MacBook Air M3,laptop,Keyboard typing experience smooth आहे,5,Performance,marathi
+Dell XPS 15,laptop,4K डिस्प्ले शानदार है color reproduction top-notch,5,Display,hindi
+Dell XPS 15,laptop,Performance excellent है heavy editing में भी smooth,5,Performance,hindi
+Dell XPS 15,laptop,Fans थोड़े noisy हैं high load पर,3,Build Quality,hindi
+Dell XPS 15,laptop,Battery average है 7 घंटे के आसपास,3,Battery,hindi
+Dell XPS 15,laptop,Price high है लेकिन professional use के लिए justified,4,Value,hindi
+Dell XPS 15,laptop,कॅमेरा गुणवत्ता सरासरी आहे पण काम भागते,3,Camera,marathi
+HP Spectre x360,laptop,Convertible design बहुत useful है tablet mode convenient,5,Build Quality,hindi
+HP Spectre x360,laptop,Display vibrant है touchscreen responsive है,5,Display,hindi
+HP Spectre x360,laptop,Battery 10 घंटे तक चलती है decent backup,4,Battery,hindi
+HP Spectre x360,laptop,Performance smooth है Intel i7 version fast चलता है,5,Performance,hindi
+HP Spectre x360,laptop,Premium look आणि feel खूप छान आहे,5,Build Quality,marathi
+Lenovo Yoga 9i,laptop,Design premium है build बहुत sturdy,5,Build Quality,hindi
+Lenovo Yoga 9i,laptop,OLED display stunning है visuals crisp हैं,5,Display,hindi
+Lenovo Yoga 9i,laptop,Battery decent है 8-9 घंटे आराम से,4,Battery,hindi
+Lenovo Yoga 9i,laptop,Sound quality excellent है B&O speakers loud हैं,5,Audio,hindi
+Lenovo Yoga 9i,laptop,₹130000 में premium experience मिलता है,4,Value,hindi
+Asus ROG Zephyrus G16,laptop,Gaming performance जबरदस्त है RTX 4070 smooth चलता है,5,Performance,hindi
+Asus ROG Zephyrus G16,laptop,Display 240Hz है gamers के लिए perfect,5,Display,hindi
+Asus ROG Zephyrus G16,laptop,Battery weak है सिर्फ 5 घंटे चलती है,3,Battery,hindi
+Asus ROG Zephyrus G16,laptop,Build strong है पर थोड़ी heating होती है,4,Build Quality,hindi
+Asus ROG Zephyrus G16,laptop,गेमिंगसाठी हा लॅपटॉप उत्तम आहे पर battery कमी आहे,4,Performance,marathi
+iPad Air M2,tablet,Display buttery smooth है 120Hz ProMotion support,5,Display,hindi
+iPad Air M2,tablet,Performance top-notch है M2 chip fast है multitasking में,5,Performance,hindi
+iPad Air M2,tablet,Battery backup solid है पूरे दिन चलती है,5,Battery,hindi
+iPad Air M2,tablet,Apple Pencil 2 support बहुत उपयोगी है,5,Build Quality,hindi
+iPad Air M2,tablet,किंमत जरा जास्त आहे पण कार्यक्षमता उत्कृष्ट,4,Value,marathi
+Samsung Galaxy Tab S9,tablet,AMOLED डिस्प्ले शानदार है movies के लिए best,5,Display,hindi
+Samsung Galaxy Tab S9,tablet,Snapdragon 8 Gen 2 performance powerful है,5,Performance,hindi
+Samsung Galaxy Tab S9,tablet,बॅटरी लाइफ उत्तम आहे पूर्ण दिवस चालते,5,Battery,marathi
+Samsung Galaxy Tab S9,tablet,S Pen experience smooth आणि natural आहे,5,Build Quality,marathi
+Samsung Galaxy Tab S9,tablet,कीमत थोडी जास्त आहे पण गुणवत्ता प्रीमियम,4,Value,marathi
+Realme Buds Air 5,earbuds,Sound clarity बहुत बढ़िया है bass deep है,5,Audio,hindi
+Realme Buds Air 5,earbuds,ANC feature ठीक काम करता है external noise कम करता है,4,Performance,hindi
+Realme Buds Air 5,earbuds,Battery backup अच्छा है 7 घंटे तक,4,Battery,hindi
+Realme Buds Air 5,earbuds,Build sturdy है case compact है,4,Build Quality,hindi
+Realme Buds Air 5,earbuds,₹3500 में superb sound quality मिळते,5,Value,marathi
+Sony WF-1000XM5,earbuds,Noise cancellation industry best है crystal clear sound,5,Audio,hindi
+Sony WF-1000XM5,earbuds,Comfort fit बहुत अच्छा है long use में भी perfect,5,Build Quality,hindi
+Sony WF-1000XM5,earbuds,Battery backup solid है 8 घंटे playback,5,Battery,hindi
+Sony WF-1000XM5,earbuds,कीमत ₹25000 है पर sound experience unmatched,4,Value,hindi
+Sony WF-1000XM5,earbuds,साउंड क्वालिटी अप्रतिम आहे bass खूप deep आहे,5,Audio,marathi
+Samsung WW90T Washing Machine,washing_machine,Wash quality excellent है clothes बिल्कुल साफ होते हैं,5,Performance,hindi
+Samsung WW90T Washing Machine,washing_machine,Noise level बहुत low है silent operation,5,Build Quality,hindi
+Samsung WW90T Washing Machine,washing_machine,Energy efficient है electricity बहुत कम लेती है,5,Value,hindi
+Samsung WW90T Washing Machine,washing_machine,ड्रम quality मजबूत है long lasting,5,Build Quality,hindi
+LG TurboWash 5.0,washing_machine,Quick wash feature बहुत helpful है busy schedule के लिए,5,Performance,hindi
+LG TurboWash 5.0,washing_machine,Noise बहुत कम है smooth functioning,5,Build Quality,hindi
+LG TurboWash 5.0,washing_machine,Power consumption कम है inverter motor efficient,4,Value,hindi
+LG TurboWash 5.0,washing_machine,बांधकाम गुणवत्ता उत्कृष्ट आहे टिकाऊ आणि मजबूत,5,Build Quality,marathi
+IFB Senator Plus,washing_machine,Wash cycles variety बहुत है हर कपड़े के लिए option,5,Smart Features,hindi
+IFB Senator Plus,washing_machine,Drum gentle है fabric damage नहीं होता,5,Performance,hindi
+IFB Senator Plus,washing_machine,Energy rating 5-star है बहुत efficient,5,Value,hindi
+IFB Senator Plus,washing_machine,Sound थोड़ा आता है spin mode में,3,Build Quality,hindi
+Bosch Serie 6,washing_machine,Build quality solid है body steel की है,5,Build Quality,hindi
+Bosch Serie 6,washing_machine,Wash quality top-notch है stains आसानी से हटते हैं,5,Performance,hindi
+Bosch Serie 6,washing_machine,Noise very low है vibration minimal,5,Build Quality,hindi
+Bosch Serie 6,washing_machine,Price थोड़ा high है लेकिन reliability excellent,4,Value,hindi
+Bosch Serie 6,washing_machine,किंमत थोडी जास्त आहे पण गुणवत्ता खूप चांगली,4,Value,marathi

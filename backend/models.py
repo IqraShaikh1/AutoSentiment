@@ -6,7 +6,6 @@ class SentimentAnalyzer:
     def __init__(self):
         """Initialize multilingual sentiment model"""
         # Using XLM-RoBERTa for multilingual support
-        # NOTE: Model is loaded untrained, so results will be generic, but structure is correct.
         model_name = "xlm-roberta-base"
         
         try:
@@ -18,20 +17,22 @@ class SentimentAnalyzer:
             self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
             self.model.to(self.device)
             print(f"Model loaded successfully on {self.device}")
-        except Exception as e:
-            print(f"Failed to load model ({e}). Using simple rule-based classifier.")
+        except:
+            print("Using simple rule-based classifier")
             self.tokenizer = None
             self.model = None
     
     def predict(self, text):
         """
-        Predict sentiment score (0-1).
-        FIXED: Returns dict {'score': float} to match app.py usage.
+        Predict sentiment score
+        Returns: float between 0-1 (0=negative, 0.5=neutral, 1=positive)
         """
         if self.model is None:
-            return {'score': self._rule_based_sentiment(text)}
+            # Simple rule-based backup
+            return self._rule_based_sentiment(text)
         
         try:
+            # Tokenize
             inputs = self.tokenizer(
                 text,
                 return_tensors="pt",
@@ -42,20 +43,20 @@ class SentimentAnalyzer:
             
             inputs = {k: v.to(self.device) for k, v in inputs.items()}
             
+            # Predict
             with torch.no_grad():
                 outputs = self.model(**inputs)
                 probabilities = torch.softmax(outputs.logits, dim=1)
             
-            # Assuming labels are 0: Negative, 1: Neutral, 2: Positive
+            # Convert to score
             probs = probabilities.cpu().numpy()[0]
-            # Score scaled towards 1 (positive)
-            score = probs[2] 
+            score = probs[2]  # positive probability
             
-            return {'score': float(score)}
+            return float(score)
         
         except Exception as e:
             print(f"Prediction error: {e}")
-            return {'score': self._rule_based_sentiment(text)}
+            return self._rule_based_sentiment(text)
     
     def _rule_based_sentiment(self, text):
         """Backup rule-based sentiment analysis"""
@@ -82,14 +83,18 @@ class SentimentAnalyzer:
 
 
 class AspectClassifier:
-    """Classify sentiment for specific aspects (Not used in app.py directly)"""
+    """Classify sentiment for specific aspects"""
+    
     def __init__(self):
         self.sentiment_analyzer = SentimentAnalyzer()
     
     def classify_aspect_sentiment(self, text, aspect):
-        # Implementation not changed as it's not the critical path
-        return self.sentiment_analyzer.predict(text)['score']
-    
-# NOTE: The AspectExtractor class below is duplicated from the original aspect_extractor.py
-# If you keep aspect_extractor.py, ensure you use the correct import in app.py
-# (which I have already done using 'as KeywordAspectExtractor')
+        """Get sentiment for a specific aspect in text"""
+        # Check if aspect is mentioned
+        if aspect.lower() not in text.lower():
+            return None
+        
+        # Get sentiment for the whole text
+        # In production: extract aspect-specific sentences
+        sentiment = self.sentiment_analyzer.predict(text)
+        return sentiment

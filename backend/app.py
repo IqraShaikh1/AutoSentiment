@@ -1,8 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from csv_data_loader import CSVDataLoader
 from models import SentimentAnalyzer
 from aspect_extractor import AspectExtractor
-from scraper import ReviewScraper # Assuming scraper.py is now fixed
 import logging
 
 # Setup logging
@@ -14,24 +14,56 @@ CORS(app)
 
 # Initialize components
 logger.info("🚀 Initializing components...")
-# NOTE: AspectExtractor is now defined in models.py and aspect_extractor.py 
-# We should import it only from one place (models.py) or rename the class in aspect_extractor.py
-# Assuming you will use the updated aspect_extractor.py for AspectExtractor class
-from aspect_extractor import AspectExtractor as KeywordAspectExtractor 
+data_loader = CSVDataLoader('reviews_dataset.csv')
 sentiment_analyzer = SentimentAnalyzer()
-aspect_extractor = KeywordAspectExtractor()
-scraper = ReviewScraper()
+aspect_extractor = AspectExtractor()
 logger.info("✅ Components initialized")
 
-# Dictionary to store analysis results globally to avoid re-analysis
-# In a production environment, this would be managed by a database/cache.
-ANALYSIS_CACHE = {} 
+@app.route('/api/products', methods=['GET'])
+def get_products():
+    """Get all available products"""
+    try:
+        category = request.args.get('category')
+        products = data_loader.get_all_products(category)
+        categories = data_loader.get_categories()
+        
+        return jsonify({
+            'products': products,
+            'categories': categories,
+            'total': len(products)
+        })
+    except Exception as e:
+        logger.error(f"❌ Error: {str(e)}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/product/<product_name>', methods=['GET'])
+def get_product_details(product_name):
+    """Get detailed information about a product"""
+    try:
+        product_data = data_loader.get_product_data(product_name)
+        
+        if not product_data:
+            return jsonify({'error': 'Product not found'}), 404
+        
+        # Add overall score
+        product_data['overall_score'] = data_loader.get_overall_score(product_name)
+        product_data['language_stats'] = data_loader.get_language_stats(product_name)
+        
+        return jsonify(product_data)
+    
+    except Exception as e:
+        logger.error(f"❌ Error: {str(e)}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/api/compare', methods=['POST'])
 def compare_products():
     try:
         data = request.get_json()
         products = data.get('products', [])
+        
+        if len(products) < 2:
+            return jsonify({'error': 'At least 2 products required for comparison'}), 400
+        
         logger.info(f"📊 Comparing products: {products}")
         
         results = {
@@ -44,24 +76,26 @@ def compare_products():
                 'strengths': {},
                 'weaknesses': {},
                 'reviewsFound': {},
-                'analysisData': {} # Store full analysis data here
+                'languageStats': {}
             }
         }
         
-        # Analyze each product
+        # Collect all aspects across products
         all_aspects = set()
+        product_data_cache = {}
         
+        # Analyze each product
         for product in products:
             logger.info(f"🔍 Analyzing: {product}")
             
-            # Get live reviews
-            reviews_data = scraper.get_reviews(product)
+            # Get product data from CSV
+            product_data = data_loader.get_product_data(product)
             
-            if not reviews_data['found']:
-                logger.warning(f"⚠️ No reviews found for {product}")
+            if not product_data:
+                logger.warning(f"⚠️ No data found for {product}")
                 results['comparison']['reviewsFound'][product] = False
                 
-                # Add placeholder data
+                # Add placeholder
                 results['comparison']['overall'].append({
                     'name': product,
                     'score': 0,
@@ -74,44 +108,69 @@ def compare_products():
                 
                 continue
             
+            # Cache product data
+            product_data_cache[product] = product_data
             results['comparison']['reviewsFound'][product] = True
             
-            # Analyze product with real reviews
-            analysis = analyze_product(
-                product, 
-                reviews_data,
-                sentiment_analyzer,
-                aspect_extractor
-            )
+            # Get overall score
+            overall_score = data_loader.get_overall_score(product)
             
-            # Store analysis for later use in comparison
-            results['comparison']['analysisData'][product] = analysis
-
+            # Determine sentiment
+            if overall_score >= 7:
+                sentiment = 'positive'
+            elif overall_score >= 5:
+                sentiment = 'neutral'
+            else:
+                sentiment = 'negative'
+            
             results['comparison']['overall'].append({
                 'name': product,
-                'score': analysis['overall_score'],
-                'sentiment': analysis['overall_sentiment']
+                'score': overall_score,
+                'sentiment': sentiment
             })
             
-            results['comparison']['reviews'][product] = analysis['sample_reviews']
-            results['comparison']['strengths'][product] = analysis['strengths']
-            results['comparison']['weaknesses'][product] = analysis['weaknesses']
+            # Get sample reviews (mix of languages)
+            reviews = product_data['reviews']
+            sample_reviews = reviews[:5]  # Top 5 reviews
+            results['comparison']['reviews'][product] = sample_reviews
             
-            # Collect all aspects
-            all_aspects.update(analysis['aspect_scores'].keys())
+            # Get language statistics
+            results['comparison']['languageStats'][product] = data_loader.get_language_stats(product)
+            
+            # Get aspect scores
+            aspect_scores = product_data['aspect_scores']
+            all_aspects.update(aspect_scores.keys())
+            
+            # Identify strengths (scores >= 80)
+            strengths = [asp for asp, score in aspect_scores.items() if score >= 80]
+            strengths = sorted(strengths, key=lambda x: aspect_scores[x], reverse=True)[:3]
+            
+            # Identify weaknesses (scores < 70)
+            weaknesses = [asp for asp, score in aspect_scores.items() if score < 70]
+            weaknesses = sorted(weaknesses, key=lambda x: aspect_scores[x])[:3]
+            
+            results['comparison']['strengths'][product] = strengths
+            results['comparison']['weaknesses'][product] = weaknesses
         
-        # Build aspect comparison from stored analysis data (FIXED: no re-scraping)
-        all_aspects_list = list(all_aspects) if all_aspects else ['Overall']
+        # Build aspect comparison
+        all_aspects_list = sorted(list(all_aspects))
         
-        results['comparison']['aspects'] = build_aspect_comparison(
-            products, 
-            all_aspects_list,
-            results['comparison']['analysisData']
-        )
+        for aspect in all_aspects_list:
+            row = {'aspect': aspect}
+            
+            for product in products:
+                if product in product_data_cache:
+                    aspect_scores = product_data_cache[product]['aspect_scores']
+                    row[product] = aspect_scores.get(aspect, 0)
+                else:
+                    row[product] = 0
+            
+            results['comparison']['aspects'].append(row)
         
+        # Radar data is same as aspects
         results['comparison']['radarData'] = results['comparison']['aspects']
         
-        # Determine winner (only from products with reviews)
+        # Determine winner
         valid_products = [p for p in results['comparison']['overall'] if p['score'] > 0]
         
         if valid_products:
@@ -120,7 +179,7 @@ def compare_products():
                 key=lambda x: x['score']
             )['name']
         else:
-            results['comparison']['winner'] = "No reviews found"
+            results['comparison']['winner'] = "No data found"
         
         logger.info(f"✅ Analysis complete. Winner: {results['comparison']['winner']}")
         
@@ -130,171 +189,59 @@ def compare_products():
         logger.error(f"❌ Error: {str(e)}", exc_info=True)
         return jsonify({'error': str(e)}), 500
 
-
-def analyze_product(product_name, reviews_data, sentiment_analyzer, aspect_extractor):
-    """Analyze all reviews for a product with real sentiment analysis"""
-    
-    all_reviews = reviews_data['hindi'] + reviews_data['marathi']
-    
-    if not all_reviews:
-        return {
-            'overall_score': 0,
-            'overall_sentiment': 'unknown',
-            'aspect_scores': {},
-            'sample_reviews': [],
-            'strengths': [],
-            'weaknesses': []
-        }
-    
-    # Sentiment analysis
-    sentiments = []
-    aspect_sentiments = {}
-    
-    for review in all_reviews:
-        review_text = review['text']
-        
-        # Get sentiment using trained model
-        # FIXED: Accessing 'score' from the dict returned by predict
-        sentiment_result = sentiment_analyzer.predict(review_text)
-        sentiment_score = sentiment_result['score'] 
-        sentiments.append(sentiment_score)
-        
-        # Extract aspects
-        aspects = aspect_extractor.extract_aspects(review_text)
-        
-        for aspect in aspects:
-            if aspect not in aspect_sentiments:
-                aspect_sentiments[aspect] = []
-            aspect_sentiments[aspect].append(sentiment_score)
-    
-    # Calculate overall score
-    overall_score = (sum(sentiments) / len(sentiments)) * 10
-    
-    # Calculate aspect scores
-    aspect_scores = {}
-    for aspect, scores in aspect_sentiments.items():
-        if scores:
-            # Scale score (0-1) to percentage (0-100)
-            avg_score = sum(scores) / len(scores)
-            aspect_scores[aspect] = int(avg_score * 100) 
-        else:
-            aspect_scores[aspect] = 50 
-    
-    # Identify strengths and weaknesses
-    # Remove 'overall' from aspect analysis for strengths/weaknesses
-    aspects_to_rank = {k: v for k, v in aspect_scores.items() if k != 'overall'}
-    sorted_aspects = sorted(aspects_to_rank.items(), key=lambda x: x[1], reverse=True)
-    
-    strengths = [asp[0] for asp in sorted_aspects[:3] if asp[1] > 65]
-    weaknesses = [asp[0] for asp in sorted_aspects[-3:] if asp[1] < 55]
-    
-    # Prepare sample reviews (top 5 reviews with different aspects)
-    sample_reviews = []
-    seen_aspects = set()
-    
-    # Logic to select diverse sample reviews (kept mostly as original logic)
-    for review in all_reviews[:15]: 
-        aspects = aspect_extractor.extract_aspects(review['text'])
-        
-        for aspect in aspects:
-            if aspect not in seen_aspects and len(sample_reviews) < 5:
-                sample_reviews.append({
-                    'text': review['text'],
-                    'rating': review['rating'],
-                    'aspect': aspect,
-                    'language': review.get('language', 'regional') # Use .get for robustness
-                })
-                seen_aspects.add(aspect)
-                break
-        
-        if len(sample_reviews) >= 5:
-            break
-    
-    # Fill remaining samples with general reviews if needed
-    if len(sample_reviews) < 5:
-        for review in all_reviews[:5]:
-            if len(sample_reviews) >= 5: break
-            if not any(sr['text'] == review['text'] for sr in sample_reviews):
-                aspects = aspect_extractor.extract_aspects(review['text'])
-                sample_reviews.append({
-                    'text': review['text'],
-                    'rating': review['rating'],
-                    'aspect': aspects[0] if aspects else 'overall',
-                    'language': review.get('language', 'regional')
-                })
-    
-    return {
-        'overall_score': round(overall_score, 1),
-        'overall_sentiment': 'positive' if overall_score > 6 else 'neutral' if overall_score > 4 else 'negative',
-        'aspect_scores': aspect_scores,
-        'sample_reviews': sample_reviews,
-        'strengths': strengths if strengths else ['Overall Performance'],
-        'weaknesses': weaknesses if weaknesses else ['No major weaknesses'],
-        'total_reviews': len(all_reviews)
-    }
-
-
-def build_aspect_comparison(products, aspects, analysis_data):
-    """Build comparison data for charts using pre-calculated analysis data (FIXED)"""
-    comparison = []
-    
-    for aspect in aspects:
-        row = {'aspect': aspect}
-        
-        for product in products:
-            analysis = analysis_data.get(product)
-            
-            if analysis:
-                score = analysis['aspect_scores'].get(aspect)
-                
-                # If aspect score exists, use it. If not, default to the overall score for 'Overall' or 50 for others.
-                if score is not None:
-                    row[product] = score
-                elif aspect.lower() == 'overall':
-                    # Use overall score scaled to 0-100 for the radar chart if available
-                    row[product] = int(analysis['overall_score'] * 10) 
-                else:
-                    # Default neutral for aspects not explicitly found
-                    row[product] = 50 
-            else:
-                row[product] = 0 # No reviews found for this product
-        
-        comparison.append(row)
-    
-    return comparison
-
-
-@app.route('/api/health', methods=['GET'])
-def health_check():
-    return jsonify({'status': 'healthy', 'version': '2.0.0', 'scraping': 'enabled'})
-
-
-@app.route('/api/test-scraper', methods=['POST'])
-def test_scraper():
-    """Test endpoint to check if scraper is working"""
+@app.route('/api/search', methods=['GET'])
+def search_products():
+    """Search for products"""
     try:
-        data = request.get_json()
-        # Use a demo product name for guaranteed results
-        product_name = data.get('product', 'iPhone 15') 
+        query = request.args.get('q', '')
+        category = request.args.get('category')
         
-        reviews_data = scraper.get_reviews(product_name)
+        if not query:
+            return jsonify({'error': 'Query parameter required'}), 400
+        
+        products = data_loader.search_products(query, category)
         
         return jsonify({
-            'product': product_name,
-            'found': reviews_data['found'],
-            'total_reviews': reviews_data['total'],
-            'hindi_reviews': len(reviews_data['hindi']),
-            'marathi_reviews': len(reviews_data['marathi']),
-            'sample_reviews': {
-                'hindi': reviews_data['hindi'][:2] if reviews_data['hindi'] else [],
-                'marathi': reviews_data['marathi'][:2] if reviews_data['marathi'] else []
-            }
+            'query': query,
+            'products': products,
+            'total': len(products)
         })
     
     except Exception as e:
-        logger.error(f"Test scraper error: {e}", exc_info=True)
+        logger.error(f"❌ Error: {str(e)}", exc_info=True)
         return jsonify({'error': str(e)}), 500
 
+@app.route('/api/health', methods=['GET'])
+def health_check():
+    """Health check endpoint"""
+    return jsonify({
+        'status': 'healthy',
+        'version': '3.0.0',
+        'data_source': 'CSV',
+        'total_products': len(data_loader.get_all_products()),
+        'categories': data_loader.get_categories()
+    })
+
+@app.route('/api/stats', methods=['GET'])
+def get_stats():
+    """Get overall statistics"""
+    try:
+        categories = data_loader.get_categories()
+        stats = {
+            'total_products': len(data_loader.get_all_products()),
+            'categories': categories,
+            'products_by_category': {}
+        }
+        
+        for category in categories:
+            products = data_loader.get_all_products(category)
+            stats['products_by_category'][category] = len(products)
+        
+        return jsonify(stats)
+    
+    except Exception as e:
+        logger.error(f"❌ Error: {str(e)}", exc_info=True)
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
